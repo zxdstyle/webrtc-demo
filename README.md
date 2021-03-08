@@ -17,4 +17,4 @@
   yarn && yarn dev
 ```
 
-分别访问`http://localhost:3000/` 和 `http://localhost:3000/client`即可体验
+先访问`http://localhost:3000/client`页面再访问 `http://localhost:3000`即可体验

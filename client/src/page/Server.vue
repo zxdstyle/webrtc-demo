@@ -17,20 +17,6 @@ export default {
 
     ws.onerror = () => alert("信令服务链接异常")
 
-    peer.onicecandidate = e => {
-      if (e.candidate) {
-        console.log("搜集并发送候选人")
-        ws.send(
-            JSON.stringify({
-              type: `offer_ice`,
-              iceCandidate: e.candidate,
-            })
-        )
-      } else {
-        console.log("候选人收集完成！")
-      }
-    }
-
     ws.onmessage = e => {
       let res = JSON.parse(e.data)
       if (res.error === 400) {
@@ -63,6 +49,21 @@ export default {
        ws.send(JSON.stringify(offer))
 
      }
+
+    peer.onicecandidate = e => {
+      console.log(e)
+      if (e.candidate) {
+        console.log("搜集并发送候选人")
+        ws.send(
+            JSON.stringify({
+              type: `offer_ice`,
+              iceCandidate: e.candidate,
+            })
+        )
+      } else {
+        console.log("候选人收集完成！")
+      }
+    }
 
      return {  }
   }
