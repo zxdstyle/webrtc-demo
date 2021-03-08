@@ -1,5 +1,7 @@
 # 快速开始
 
+> 此项目为简单的demo项目，仅支持本机通信
+
 ```
   git clone https://github.com/zxdstyle/webrtc-demo.git
 ```
